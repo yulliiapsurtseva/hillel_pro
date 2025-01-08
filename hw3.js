@@ -8,7 +8,7 @@ const pow = (x,y) => {
         while (y > 0);
         return n;
     } else {
-        return 'Please input "y" more than 1';
+        return 'Please input "y" greater than 1';
     }
 
 }
