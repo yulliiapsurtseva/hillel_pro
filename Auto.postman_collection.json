@@ -11,15 +11,15 @@
 			"name": "SignUp negative cases",
 			"item": [
 				{
-					"name": "Empty email",
+					"name": "Email field validation",
 					"event": [
 						{
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"pm.collectionVariables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
+									"pm.collectionVariables.set(\"email\", pm.iterationData.get(\"email\"));",
 									"",
-									"pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
+									"pm.collectionVariables.set(\"randomPassword\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -30,8 +30,8 @@
 							"script": {
 								"exec": [
 									"jsonData = pm.response.json();",
-									"pm.test(\"Empty email field message validation\", function () {",
-									"    pm.expect(jsonData.message).to.eql(\"\\\"email\\\" is not allowed to be empty\");",
+									"pm.test(\"Incorrect value in email field\", function () {",
+									"    pm.response.to.have.status(400);",
 									"});"
 								],
 								"type": "text/javascript",
@@ -56,7 +56,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"{{$randomFirstName}}\",\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"\",\n  \"password\": \"{{password}}\",\n  \"repeatPassword\": \"{{password}}\"\n}",
+							"raw": "{\n  \"name\": \"{{$randomFirstName}}\",\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": {{email}},\n  \"password\": \"{{randomPassword}}\",\n  \"repeatPassword\": \"{{randomPassword}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -78,7 +78,7 @@
 					"response": []
 				},
 				{
-					"name": "Email without domain",
+					"name": "Name in number format in email Copy",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -97,9 +97,10 @@
 							"script": {
 								"exec": [
 									"jsonData = pm.response.json();",
-									"pm.test(\"Incorrect email format in email field message validation\", function () {",
-									"    pm.expect(jsonData.message).to.eql(\"Email is incorrect\");",
-									"});"
+									"pm.test(\"Name as number in email field validation\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"// Error should be changed"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -123,7 +124,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"{{$randomFirstName}}\",\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"johndoe@.com\",\n  \"password\": \"{{password}}\",\n  \"repeatPassword\": \"{{password}}\"\n}",
+							"raw": "{\n  \"name\": 123,\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"{{$randomEmail}}\",\n  \"password\": \"{{password}}\",\n  \"repeatPassword\": \"{{password}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -144,6 +145,78 @@
 					},
 					"response": []
 				},
+				{
+					"name": "Password field validation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
+									"pm.collectionVariables.set(\"password\", pm.iterationData.get(\"password\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"jsonData = pm.response.json();",
+									"pm.test(\"Incorrect value in password field\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"// Error should be changed"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": {{$randomFirstName}},\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"{{$randomEmail}}\",\n  \"password\": \"{{password}}\",\n  \"repeatPassword\": \"{{password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						},
+						"description": "Generated from cURL: curl -X 'POST' \\\n  'https://qauto2.forstudy.space/api/auth/signup' \\\n  -H 'accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n  \"name\": \"John\",\n  \"lastName\": \"Dou\",\n  \"email\": \"test@test.com\",\n  \"password\": \"Qwerty12345\",\n  \"repeatPassword\": \"Qwerty12345\"\n}'"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Old tests",
+			"item": [
 				{
 					"name": "Email with whitespaces in middle",
 					"event": [
@@ -481,17 +554,20 @@
 						"description": "Generated from cURL: curl -X 'POST' \\\n  'https://qauto2.forstudy.space/api/auth/signup' \\\n  -H 'accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n  \"name\": \"John\",\n  \"lastName\": \"Dou\",\n  \"email\": \"test@test.com\",\n  \"password\": \"Qwerty12345\",\n  \"repeatPassword\": \"Qwerty12345\"\n}'"
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Edit profile validation",
+			"item": [
 				{
-					"name": "Name in number format in email Copy",
+					"name": "Check validation on edit profile",
 					"event": [
 						{
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"pm.collectionVariables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
-									"",
-									"pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
+									"pm.variables.set(\"body\",JSON.stringify(pm.iterationData.get(\"body\")));"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -502,21 +578,32 @@
 							"script": {
 								"exec": [
 									"jsonData = pm.response.json();",
-									"pm.test(\"Name as number in email field validation\", function () {",
+									"pm.test(\"Incorect values in fields\", function () {",
 									"    pm.response.to.have.status(400);",
-									"});",
-									"// Error should be changed"
+									"});"
 								],
 								"type": "text/javascript",
 								"packages": {}
 							}
 						}
 					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
 					"request": {
-						"method": "POST",
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{email}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
 						"header": [
 							{
 								"key": "accept",
@@ -529,7 +616,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": 123,\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"{{$randomEmail}}\",\n  \"password\": \"{{password}}\",\n  \"repeatPassword\": \"{{password}}\"\n}",
+							"raw": "{{body}}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -537,84 +624,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/auth/signup",
+							"raw": "{{base_url}}/users/profile",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"auth",
-								"signup"
+								"users",
+								"profile"
 							]
 						},
-						"description": "Generated from cURL: curl -X 'POST' \\\n  'https://qauto2.forstudy.space/api/auth/signup' \\\n  -H 'accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n  \"name\": \"John\",\n  \"lastName\": \"Dou\",\n  \"email\": \"test@test.com\",\n  \"password\": \"Qwerty12345\",\n  \"repeatPassword\": \"Qwerty12345\"\n}'"
-					},
-					"response": []
-				},
-				{
-					"name": "Object in password",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));",
-									"",
-									"pm.collectionVariables.set(\"password\", pm.variables.replaceIn(\"{{$randomPassword}}\"));"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"jsonData = pm.response.json();",
-									"pm.test(\"Object in password field validation\", function () {",
-									"    pm.response.to.have.status(400);",
-									"});",
-									"// Error should be changed"
-								],
-								"type": "text/javascript",
-								"packages": {}
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"name\": {{$randomFirstName}},\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"{{$randomEmail}}\",\n  \"password\": {\n    \"password\": \"{{password}}\"\n  },\n  \"repeatPassword\": \"{{password}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/auth/signup",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"auth",
-								"signup"
-							]
-						},
-						"description": "Generated from cURL: curl -X 'POST' \\\n  'https://qauto2.forstudy.space/api/auth/signup' \\\n  -H 'accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n  \"name\": \"John\",\n  \"lastName\": \"Dou\",\n  \"email\": \"test@test.com\",\n  \"password\": \"Qwerty12345\",\n  \"repeatPassword\": \"Qwerty12345\"\n}'"
+						"description": "Generated from cURL: curl -X 'PUT' \\\n  'https://qauto2.forstudy.space/api/users/profile' \\\n  -H 'accept: application/json' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\n  \"photo\": \"user-1621352948859.jpg\",\n  \"name\": \"John\",\n  \"lastName\": \"Dou\",\n  \"dateBirth\": \"2021-03-17T15:21:05.000Z\",\n  \"country\": \"Ukraine\"\n}'"
 					},
 					"response": []
 				}
@@ -1339,6 +1358,10 @@
 		},
 		{
 			"key": "carMilleage",
+			"value": ""
+		},
+		{
+			"key": "randomPassword",
 			"value": ""
 		}
 	]
