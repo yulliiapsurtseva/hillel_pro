@@ -1,0 +1,1296 @@
+{
+	"info": {
+		"_postman_id": "8c57482e-a2ea-4ba2-a272-f8875eae3566",
+		"name": "Public SOAP APIs",
+		"description": "This is a collection of different SOAP APIs that are completley public and do not require any authentication, making it easier for consumers to play with and understand what APIs are all about by seeing the many different ways in which APIs can be used.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11284970",
+		"_collection_link": "https://yuliia-psurtseva-1camdy44dbfkv.postman.co/workspace/Hillel-QA-Pro-YP~007c3a59-5aba-4112-b100-fbe67fce80d3/collection/11284970-8c57482e-a2ea-4ba2-a272-f8875eae3566?action=share&source=collection_link&creator=11284970"
+	},
+	"item": [
+		{
+			"name": "Numbers",
+			"item": [
+				{
+					"name": "NumberToWords",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>500</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+							"protocol": "https",
+							"host": [
+								"www",
+								"dataaccess",
+								"com"
+							],
+							"path": [
+								"webservicesserver",
+								"NumberConversion.wso"
+							]
+						},
+						"description": "Returns the word corresponding to the positive number passed as parameter. Limited to quadrillions."
+					},
+					"response": []
+				},
+				{
+					"name": "NumberToDollars",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToDollars xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <dNum>500</dNum>\n    </NumberToDollars>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+							"protocol": "https",
+							"host": [
+								"www",
+								"dataaccess",
+								"com"
+							],
+							"path": [
+								"webservicesserver",
+								"NumberConversion.wso"
+							]
+						},
+						"description": "Returns the non-zero dollar amount of the passed number."
+					},
+					"response": []
+				}
+			],
+			"description": "Some basic numbers requests."
+		},
+		{
+			"name": "Calculator",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>500</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+							"protocol": "https",
+							"host": [
+								"www",
+								"dataaccess",
+								"com"
+							],
+							"path": [
+								"webservicesserver",
+								"NumberConversion.wso"
+							]
+						},
+						"description": "Adds two integers."
+					},
+					"response": []
+				},
+				{
+					"name": "NumberToDollars",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToDollars xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <dNum>500</dNum>\n    </NumberToDollars>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+							"protocol": "https",
+							"host": [
+								"www",
+								"dataaccess",
+								"com"
+							],
+							"path": [
+								"webservicesserver",
+								"NumberConversion.wso"
+							]
+						},
+						"description": "Returns the non-zero dollar amount of the passed number."
+					},
+					"response": []
+				},
+				{
+					"name": "Divide",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/Divide",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <Divide xmlns=\"http://tempuri.org/\">\n      <intA>5</intA>\n      <intB>5</intB>\n    </Divide>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://www.dneonline.com/calculator.asmx",
+							"protocol": "http",
+							"host": [
+								"www",
+								"dneonline",
+								"com"
+							],
+							"path": [
+								"calculator.asmx"
+							]
+						},
+						"description": "Divides two integers."
+					},
+					"response": []
+				},
+				{
+					"name": "Multiply",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/Multiply",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <Multiply xmlns=\"http://tempuri.org/\">\n      <intA>5</intA>\n      <intB>5</intB>\n    </Multiply>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://www.dneonline.com/calculator.asmx",
+							"protocol": "http",
+							"host": [
+								"www",
+								"dneonline",
+								"com"
+							],
+							"path": [
+								"calculator.asmx"
+							]
+						},
+						"description": "Multiplies two integers."
+					},
+					"response": []
+				},
+				{
+					"name": "Subtract",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "http://tempuri.org/Subtract",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <Subtract xmlns=\"http://tempuri.org/\">\n      <intA>5</intA>\n      <intB>5</intB>\n    </Subtract>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://www.dneonline.com/calculator.asmx",
+							"protocol": "http",
+							"host": [
+								"www",
+								"dneonline",
+								"com"
+							],
+							"path": [
+								"calculator.asmx"
+							]
+						},
+						"description": "Subtracts two integers."
+					},
+					"response": []
+				}
+			],
+			"description": "A simple SOAP API calculator.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Continents",
+			"item": [
+				{
+					"name": "List of Continents by Name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <ListOfContinentsByName xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n    </ListOfContinentsByName>\n  </soap12:Body>\n</soap12:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"oorsprong",
+								"org"
+							],
+							"path": [
+								"websamples.countryinfo",
+								"CountryInfoService.wso"
+							]
+						},
+						"description": "Returns a list of continents ordered by name."
+					},
+					"response": []
+				}
+			],
+			"description": "Some weather APIs for the United States.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Countries",
+			"item": [
+				{
+					"name": "List of Countries by Name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <ListOfCountryNamesByName xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n    </ListOfCountryNamesByName>\n  </soap12:Body>\n</soap12:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"oorsprong",
+								"org"
+							],
+							"path": [
+								"websamples.countryinfo",
+								"CountryInfoService.wso"
+							]
+						},
+						"description": "Returns a list of countries ordered by name."
+					},
+					"response": []
+				},
+				{
+					"name": "Captial City for a Country",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <CapitalCity xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n      <sCountryISOCode>US</sCountryISOCode>\n    </CapitalCity>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"oorsprong",
+								"org"
+							],
+							"path": [
+								"websamples.countryinfo",
+								"CountryInfoService.wso"
+							]
+						},
+						"description": "Returns the name of the captial city for the passed country code."
+					},
+					"response": []
+				},
+				{
+					"name": "Currency for a Country",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <CountryCurrency xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n      <sCountryISOCode>US</sCountryISOCode>\n    </CountryCurrency>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"oorsprong",
+								"org"
+							],
+							"path": [
+								"websamples.countryinfo",
+								"CountryInfoService.wso"
+							]
+						},
+						"description": "Returns the currency ISO code and name for the passed country ISO code."
+					},
+					"response": []
+				},
+				{
+					"name": "Flag for a Country",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <CountryFlag xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n      <sCountryISOCode>US</sCountryISOCode>\n    </CountryFlag>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"oorsprong",
+								"org"
+							],
+							"path": [
+								"websamples.countryinfo",
+								"CountryInfoService.wso"
+							]
+						},
+						"description": "Returns a link to a picture of the country flag"
+					},
+					"response": []
+				},
+				{
+					"name": "International Phone Code for a Country Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <CountryIntPhoneCode xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n      <sCountryISOCode>US</sCountryISOCode>\n    </CountryIntPhoneCode>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"oorsprong",
+								"org"
+							],
+							"path": [
+								"websamples.countryinfo",
+								"CountryInfoService.wso"
+							]
+						},
+						"description": "Returns the internation phone code for the passed ISO country code."
+					},
+					"response": []
+				}
+			],
+			"description": "Country SOAP APIs.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Currencies",
+			"item": [
+				{
+					"name": "List of Currencies by Name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <ListOfCurrenciesByName xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n    </ListOfCurrenciesByName>\n  </soap12:Body>\n</soap12:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"oorsprong",
+								"org"
+							],
+							"path": [
+								"websamples.countryinfo",
+								"CountryInfoService.wso"
+							]
+						},
+						"description": "Returns a list of currencies ordered by name."
+					},
+					"response": []
+				}
+			],
+			"description": "Returns a list of currencies ordered by name.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Languages",
+			"item": [
+				{
+					"name": "List of Languages by Name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <ListOfLanguagesByName xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n    </ListOfLanguagesByName>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"oorsprong",
+								"org"
+							],
+							"path": [
+								"websamples.countryinfo",
+								"CountryInfoService.wso"
+							]
+						},
+						"description": "Returns an array of languages ordered by name."
+					},
+					"response": []
+				}
+			],
+			"description": "SOAP APIs for languages around the world.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Book ISBN Numbers",
+			"item": [
+				{
+					"name": "ISNBN13 tests",
+					"item": [
+						{
+							"name": "Without xml Content type",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const xml2js = require('xml2js');   ",
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(415);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml; charset=utf-8",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN13 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN>978-1-4612-9090-2</sISBN>\n    </IsValidISBN13>\n  </soap:Body>\n</soap:Envelope>"
+								},
+								"url": {
+									"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+									"protocol": "http",
+									"host": [
+										"webservices",
+										"daehosting",
+										"com"
+									],
+									"path": [
+										"services",
+										"isbnservice.wso"
+									]
+								},
+								"description": "### HTTP POST Request to Validate ISBN-13\n\nThis endpoint allows you to validate an ISBN-13 number by sending an HTTP POST request to the specified URL.\n\n#### Request Body\n\nThe request should include a raw request body with the ISBN-13 number to be validated.\n\nExample:\n\n```\n1.0\n\n ```\n\n#### Response\n\nUpon successful execution, the response will have a status code of 200 and a content type of text/xml. The response body will be in XML format and will contain the `IsValidISBN13Result` key within the `soap:Body` object.\n\nTo access the `IsValidISBN13Result` key within the `soap:Body` object, you can parse the XML response and retrieve the value of the `IsValidISBN13Result` key.\n\nFor example, if using JavaScript and the response is stored in a variable called `xmlResponse`, you can access the value as follows:\n\n``` javascript\nconst parser = new DOMParser();\nconst xmlDoc = parser.parseFromString(xmlResponse, \"text/xml\");\nconst isValidISBN13Result = xmlDoc.getElementsByTagName(\"m:IsValidISBN13Result\")[0].childNodes[0].nodeValue;\n\n ```\n\nThis will retrieve the true value of the `IsValidISBN13Result` key within the XML response."
+							},
+							"response": []
+						},
+						{
+							"name": "With incorrect ISNB",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const xml2js = require('xml2js');   ",
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Check on success creating book\", function () {",
+											"    xml2js.parseString(pm.response.text(), function (err, result) {",
+											"        pm.expect(result['soap:Envelope']['soap:Body'][0]['m:IsValidISBN13Response'][0]['m:IsValidISBN13Result']).to.include(\"false\");",
+											"",
+											"    });",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml; charset=utf-8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN13 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN>978-1-4612-9090</sISBN>\n    </IsValidISBN13>\n  </soap:Body>\n</soap:Envelope>"
+								},
+								"url": {
+									"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+									"protocol": "http",
+									"host": [
+										"webservices",
+										"daehosting",
+										"com"
+									],
+									"path": [
+										"services",
+										"isbnservice.wso"
+									]
+								},
+								"description": "### HTTP POST Request to Validate ISBN-13\n\nThis endpoint allows you to validate an ISBN-13 number by sending an HTTP POST request to the specified URL.\n\n#### Request Body\n\nThe request should include a raw request body with the ISBN-13 number to be validated.\n\nExample:\n\n```\n1.0\n\n ```\n\n#### Response\n\nUpon successful execution, the response will have a status code of 200 and a content type of text/xml. The response body will be in XML format and will contain the `IsValidISBN13Result` key within the `soap:Body` object.\n\nTo access the `IsValidISBN13Result` key within the `soap:Body` object, you can parse the XML response and retrieve the value of the `IsValidISBN13Result` key.\n\nFor example, if using JavaScript and the response is stored in a variable called `xmlResponse`, you can access the value as follows:\n\n``` javascript\nconst parser = new DOMParser();\nconst xmlDoc = parser.parseFromString(xmlResponse, \"text/xml\");\nconst isValidISBN13Result = xmlDoc.getElementsByTagName(\"m:IsValidISBN13Result\")[0].childNodes[0].nodeValue;\n\n ```\n\nThis will retrieve the true value of the `IsValidISBN13Result` key within the XML response."
+							},
+							"response": []
+						},
+						{
+							"name": "With empty ISNB",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const xml2js = require('xml2js');   ",
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Check on success creating book\", function () {",
+											"    xml2js.parseString(pm.response.text(), function (err, result) {",
+											"        pm.expect(result['soap:Envelope']['soap:Body'][0]['m:IsValidISBN13Response'][0]['m:IsValidISBN13Result']).to.include(\"false\");",
+											"",
+											"    });",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml; charset=utf-8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN13 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN></sISBN>\n    </IsValidISBN13>\n  </soap:Body>\n</soap:Envelope>"
+								},
+								"url": {
+									"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+									"protocol": "http",
+									"host": [
+										"webservices",
+										"daehosting",
+										"com"
+									],
+									"path": [
+										"services",
+										"isbnservice.wso"
+									]
+								},
+								"description": "### HTTP POST Request to Validate ISBN-13\n\nThis endpoint allows you to validate an ISBN-13 number by sending an HTTP POST request to the specified URL.\n\n#### Request Body\n\nThe request should include a raw request body with the ISBN-13 number to be validated.\n\nExample:\n\n```\n1.0\n\n ```\n\n#### Response\n\nUpon successful execution, the response will have a status code of 200 and a content type of text/xml. The response body will be in XML format and will contain the `IsValidISBN13Result` key within the `soap:Body` object.\n\nTo access the `IsValidISBN13Result` key within the `soap:Body` object, you can parse the XML response and retrieve the value of the `IsValidISBN13Result` key.\n\nFor example, if using JavaScript and the response is stored in a variable called `xmlResponse`, you can access the value as follows:\n\n``` javascript\nconst parser = new DOMParser();\nconst xmlDoc = parser.parseFromString(xmlResponse, \"text/xml\");\nconst isValidISBN13Result = xmlDoc.getElementsByTagName(\"m:IsValidISBN13Result\")[0].childNodes[0].nodeValue;\n\n ```\n\nThis will retrieve the true value of the `IsValidISBN13Result` key within the XML response."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ISNBN10 tests",
+					"item": [
+						{
+							"name": "Without xml Content type",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const xml2js = require('xml2js');   ",
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(415);",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml; charset=utf-8",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN>0-19-852663-6</sISBN>\n    </IsValidISBN10>\n  </soap:Body>\n</soap:Envelope>"
+								},
+								"url": {
+									"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+									"protocol": "http",
+									"host": [
+										"webservices",
+										"daehosting",
+										"com"
+									],
+									"path": [
+										"services",
+										"isbnservice.wso"
+									]
+								},
+								"description": "### HTTP POST Request to Validate ISBN-13\n\nThis endpoint allows you to validate an ISBN-13 number by sending an HTTP POST request to the specified URL.\n\n#### Request Body\n\nThe request should include a raw request body with the ISBN-13 number to be validated.\n\nExample:\n\n```\n1.0\n\n ```\n\n#### Response\n\nUpon successful execution, the response will have a status code of 200 and a content type of text/xml. The response body will be in XML format and will contain the `IsValidISBN13Result` key within the `soap:Body` object.\n\nTo access the `IsValidISBN13Result` key within the `soap:Body` object, you can parse the XML response and retrieve the value of the `IsValidISBN13Result` key.\n\nFor example, if using JavaScript and the response is stored in a variable called `xmlResponse`, you can access the value as follows:\n\n``` javascript\nconst parser = new DOMParser();\nconst xmlDoc = parser.parseFromString(xmlResponse, \"text/xml\");\nconst isValidISBN13Result = xmlDoc.getElementsByTagName(\"m:IsValidISBN13Result\")[0].childNodes[0].nodeValue;\n\n ```\n\nThis will retrieve the true value of the `IsValidISBN13Result` key within the XML response."
+							},
+							"response": []
+						},
+						{
+							"name": "With incorrect ISNB",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const xml2js = require('xml2js');   ",
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Check on success creating book\", function () {",
+											"    xml2js.parseString(pm.response.text(), function (err, result) {",
+											"        pm.expect(result['soap:Envelope']['soap:Body'][0]['m:IsValidISBN10Response'][0]['m:IsValidISBN10Result']).to.include(\"false\");",
+											"",
+											"    });",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml; charset=utf-8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN>0-19-852663-</sISBN>\n    </IsValidISBN10>\n  </soap:Body>\n</soap:Envelope>"
+								},
+								"url": {
+									"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+									"protocol": "http",
+									"host": [
+										"webservices",
+										"daehosting",
+										"com"
+									],
+									"path": [
+										"services",
+										"isbnservice.wso"
+									]
+								},
+								"description": "### HTTP POST Request to Validate ISBN-13\n\nThis endpoint allows you to validate an ISBN-13 number by sending an HTTP POST request to the specified URL.\n\n#### Request Body\n\nThe request should include a raw request body with the ISBN-13 number to be validated.\n\nExample:\n\n```\n1.0\n\n ```\n\n#### Response\n\nUpon successful execution, the response will have a status code of 200 and a content type of text/xml. The response body will be in XML format and will contain the `IsValidISBN13Result` key within the `soap:Body` object.\n\nTo access the `IsValidISBN13Result` key within the `soap:Body` object, you can parse the XML response and retrieve the value of the `IsValidISBN13Result` key.\n\nFor example, if using JavaScript and the response is stored in a variable called `xmlResponse`, you can access the value as follows:\n\n``` javascript\nconst parser = new DOMParser();\nconst xmlDoc = parser.parseFromString(xmlResponse, \"text/xml\");\nconst isValidISBN13Result = xmlDoc.getElementsByTagName(\"m:IsValidISBN13Result\")[0].childNodes[0].nodeValue;\n\n ```\n\nThis will retrieve the true value of the `IsValidISBN13Result` key within the XML response."
+							},
+							"response": []
+						},
+						{
+							"name": "Success on 9 + X symbols",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const xml2js = require('xml2js');   ",
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Check on success creating book\", function () {",
+											"    xml2js.parseString(pm.response.text(), function (err, result) {",
+											"        pm.expect(result['soap:Envelope']['soap:Body'][0]['m:IsValidISBN10Response'][0]['m:IsValidISBN10Result']).to.include(\"true\");",
+											"",
+											"    });",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml; charset=utf-8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN>0-19-852661-X</sISBN>\n    </IsValidISBN10>\n  </soap:Body>\n</soap:Envelope>"
+								},
+								"url": {
+									"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+									"protocol": "http",
+									"host": [
+										"webservices",
+										"daehosting",
+										"com"
+									],
+									"path": [
+										"services",
+										"isbnservice.wso"
+									]
+								},
+								"description": "### HTTP POST Request to Validate ISBN-13\n\nThis endpoint allows you to validate an ISBN-13 number by sending an HTTP POST request to the specified URL.\n\n#### Request Body\n\nThe request should include a raw request body with the ISBN-13 number to be validated.\n\nExample:\n\n```\n1.0\n\n ```\n\n#### Response\n\nUpon successful execution, the response will have a status code of 200 and a content type of text/xml. The response body will be in XML format and will contain the `IsValidISBN13Result` key within the `soap:Body` object.\n\nTo access the `IsValidISBN13Result` key within the `soap:Body` object, you can parse the XML response and retrieve the value of the `IsValidISBN13Result` key.\n\nFor example, if using JavaScript and the response is stored in a variable called `xmlResponse`, you can access the value as follows:\n\n``` javascript\nconst parser = new DOMParser();\nconst xmlDoc = parser.parseFromString(xmlResponse, \"text/xml\");\nconst isValidISBN13Result = xmlDoc.getElementsByTagName(\"m:IsValidISBN13Result\")[0].childNodes[0].nodeValue;\n\n ```\n\nThis will retrieve the true value of the `IsValidISBN13Result` key within the XML response."
+							},
+							"response": []
+						},
+						{
+							"name": "With empty ISNB",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const xml2js = require('xml2js'); ",
+											"",
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Check on success creating book\", function () {",
+											"    xml2js.parseString(pm.response.text(), function (err, result) {",
+											"        pm.expect(result['soap:Envelope']['soap:Body'][0]['m:IsValidISBN10Response'][0]['m:IsValidISBN10Result']).to.include(\"false\");",
+											"",
+											"    });",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "text/xml; charset=utf-8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN></sISBN>\n    </IsValidISBN10>\n  </soap:Body>\n</soap:Envelope>"
+								},
+								"url": {
+									"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+									"protocol": "http",
+									"host": [
+										"webservices",
+										"daehosting",
+										"com"
+									],
+									"path": [
+										"services",
+										"isbnservice.wso"
+									]
+								},
+								"description": "### HTTP POST Request to Validate ISBN-13\n\nThis endpoint allows you to validate an ISBN-13 number by sending an HTTP POST request to the specified URL.\n\n#### Request Body\n\nThe request should include a raw request body with the ISBN-13 number to be validated.\n\nExample:\n\n```\n1.0\n\n ```\n\n#### Response\n\nUpon successful execution, the response will have a status code of 200 and a content type of text/xml. The response body will be in XML format and will contain the `IsValidISBN13Result` key within the `soap:Body` object.\n\nTo access the `IsValidISBN13Result` key within the `soap:Body` object, you can parse the XML response and retrieve the value of the `IsValidISBN13Result` key.\n\nFor example, if using JavaScript and the response is stored in a variable called `xmlResponse`, you can access the value as follows:\n\n``` javascript\nconst parser = new DOMParser();\nconst xmlDoc = parser.parseFromString(xmlResponse, \"text/xml\");\nconst isValidISBN13Result = xmlDoc.getElementsByTagName(\"m:IsValidISBN13Result\")[0].childNodes[0].nodeValue;\n\n ```\n\nThis will retrieve the true value of the `IsValidISBN13Result` key within the XML response."
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Is Valid ISBN13 Number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const xml2js = require('xml2js');   ",
+									"",
+									"pm.test(\"Response content type is text/xml\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");",
+									"});",
+									"",
+									"pm.test(\"Response encoding is utf-8\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"utf-8\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"  pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"});",
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check on Envelope tag\", function () {",
+									"    xml2js.parseString(pm.response.text(), function (err, result) {",
+									"        pm.expect(result).to.have.property('soap:Envelope');",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Check on success creating book\", function () {",
+									"    xml2js.parseString(pm.response.text(), function (err, result) {",
+									"        pm.expect(result['soap:Envelope']['soap:Body'][0]['m:IsValidISBN13Response'][0]['m:IsValidISBN13Result']).to.include(\"true\");",
+									"",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN13 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN>978-1-4612-9090-2</sISBN>\n    </IsValidISBN13>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"daehosting",
+								"com"
+							],
+							"path": [
+								"services",
+								"isbnservice.wso"
+							]
+						},
+						"description": "### HTTP POST Request to Validate ISBN-13\n\nThis endpoint allows you to validate an ISBN-13 number by sending an HTTP POST request to the specified URL.\n\n#### Request Body\n\nThe request should include a raw request body with the ISBN-13 number to be validated.\n\nExample:\n\n```\n1.0\n\n ```\n\n#### Response\n\nUpon successful execution, the response will have a status code of 200 and a content type of text/xml. The response body will be in XML format and will contain the `IsValidISBN13Result` key within the `soap:Body` object.\n\nTo access the `IsValidISBN13Result` key within the `soap:Body` object, you can parse the XML response and retrieve the value of the `IsValidISBN13Result` key.\n\nFor example, if using JavaScript and the response is stored in a variable called `xmlResponse`, you can access the value as follows:\n\n``` javascript\nconst parser = new DOMParser();\nconst xmlDoc = parser.parseFromString(xmlResponse, \"text/xml\");\nconst isValidISBN13Result = xmlDoc.getElementsByTagName(\"m:IsValidISBN13Result\")[0].childNodes[0].nodeValue;\n\n ```\n\nThis will retrieve the true value of the `IsValidISBN13Result` key within the XML response."
+					},
+					"response": []
+				},
+				{
+					"name": "Is Valid ISBN10 Number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const xml2js = require('xml2js');",
+									"",
+									"pm.test(\"Response content type is text/xml\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"text/xml\");",
+									"});",
+									"",
+									"pm.test(\"Response encoding is utf-8\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"utf-8\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"  pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"});",
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check on Envelope tag\", function () {",
+									"    xml2js.parseString(pm.response.text(), function (err, result) {",
+									"        pm.expect(result).to.have.property('soap:Envelope');",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Check on success creating book\", function () {",
+									"    xml2js.parseString(pm.response.text(), function (err, result) {",
+									"        pm.expect(result['soap:Envelope']['soap:Body'][0]['m:IsValidISBN10Response'][0]['m:IsValidISBN10Result']).to.include(\"true\");",
+									"",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <IsValidISBN10 xmlns=\"http://webservices.daehosting.com/ISBN\">\n      <sISBN>0-19-852663-6</sISBN>\n    </IsValidISBN10>\n  </soap:Body>\n</soap:Envelope>"
+						},
+						"url": {
+							"raw": "http://webservices.daehosting.com/services/isbnservice.wso",
+							"protocol": "http",
+							"host": [
+								"webservices",
+								"daehosting",
+								"com"
+							],
+							"path": [
+								"services",
+								"isbnservice.wso"
+							]
+						},
+						"description": "The test is done by calculation on the first 9 digits and compare the result with the checksum number at the end. You have to pass a 10 digits number or 8 digits and an X."
+					},
+					"response": []
+				}
+			],
+			"description": "SOAP APIs for book ISBN numbers.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Temperature",
+			"item": [
+				{
+					"name": "Celsius to Farenheit Conversion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/soap+xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <CelsiusToFahrenheit xmlns=\"https://www.w3schools.com/xml/\">\n      <Celsius>20</Celsius>\n    </CelsiusToFahrenheit>\n  </soap12:Body>\n</soap12:Envelope>"
+						},
+						"url": {
+							"raw": "https://www.w3schools.com/xml/tempconvert.asmx",
+							"protocol": "https",
+							"host": [
+								"www",
+								"w3schools",
+								"com"
+							],
+							"path": [
+								"xml",
+								"tempconvert.asmx"
+							]
+						},
+						"description": "Converts celsius temperature to farenheit."
+					},
+					"response": []
+				},
+				{
+					"name": "Farenheit to Celsius Conversion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/soap+xml; charset=utf-8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <FahrenheitToCelsius xmlns=\"https://www.w3schools.com/xml/\">\n      <Fahrenheit>75</Fahrenheit>\n    </FahrenheitToCelsius>\n  </soap12:Body>\n</soap12:Envelope>"
+						},
+						"url": {
+							"raw": "https://www.w3schools.com/xml/tempconvert.asmx",
+							"protocol": "https",
+							"host": [
+								"www",
+								"w3schools",
+								"com"
+							],
+							"path": [
+								"xml",
+								"tempconvert.asmx"
+							]
+						},
+						"description": "Converts farenheit temperature to celsius."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
