@@ -33,4 +33,3 @@ let filteredEmails = initialArr => {
 
 
 console.log(filteredEmails(arr));
-
